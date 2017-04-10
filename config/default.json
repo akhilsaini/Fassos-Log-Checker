@@ -1,0 +1,20 @@
+{
+  "sqldb": {
+    "host": "localhost",
+    "user": "root",
+    "password": "paxcel@123",
+    "database": "ip_nation",
+    "port": 3306
+  },
+  "app": {
+    "http": {
+      "port": 3000
+    }
+  },
+  "consts": {
+    "hack": {
+      "header": "MATLAB R2013a",
+      "exception_country": "in"
+    }
+  }
+}

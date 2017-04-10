@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+		<script>
+			$(document).ready(function(){
+				console.log('HERE;');
+		  var socket = io();
+			console.log('SOCK ',socket);
+		  socket.on('log', function(msg){
+		      console.log('RECEVIED FROM SERVER: ',msg);
+					$('#log').append('<div><pre>'+JSON.stringify(msg)+'</pre></div>');
+		    });
+
+			});
+		</script>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <pre>
+    <div id='log'></div>
+    </pre>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+#!/usr/bin/env node
+
+var app = require('../app');
+//var debug = require('debug')('notify2:server');
+var http = require('http');
+//var https = require('https');
+var config = require('config');
+var fs = require('fs');
+var debug = require('debug')('app:server');
+
+
+//var privateKey  = fs.readFileSync(process.env.KEY_FILE);
+//var certificate = fs.readFileSync(process.env.CRT_FILE);
+//var ca = fs.readFileSync(process.env.CA_FILE);
+
+/**
+ * make a log directory, just in case it isn't there.
+ */
+try {
+  fs.mkdirSync('./logs');
+} catch (e) {
+  if (e.code != 'EEXIST') {
+    console.error("Could not set up log directory, error was: ", e);
+    process.exit(1);
+  }
+}
+
+var http_port = config.get('app.http.port') || 3000;
+	//app.set('port', http_port);
+	var http_server = http.createServer(app);
+	http_server.listen(http_port);
+	http_server.on('error', onError);
+	http_server.on('listening', onListening);
+
+
+
+// var credentials = {key: privateKey, cert: certificate, ca:ca};
+
+// if(process.env.TYPE == 'SERVER'){
+
+// 	var http_port = config.get('app.http.port');
+// 	//app.set('port', http_port);
+// 	var http_server = http.createServer(app);
+// 	http_server.listen(http_port);
+// 	http_server.on('error', onError);
+// 	http_server.on('listening', onListening);
+
+// 	var https_port = config.get('app.https.port');
+// 	var https_server = https.createServer(credentials, app);
+// 	https_server.listen(https_port);
+// 	https_server.on('error', onError);
+// 	https_server.on('listening', onListening);
+
+// 	require('../modules/socket.io')(https_server, app);
+// 	//require('../modules/socket.io')(http_server, app);
+
+// 	setInterval(function(){
+// 		app.em.emit('QUEUE_MONITOR');
+// 	},10*1000);
+// 	console.log('HTTP: ',http_port);
+// 	console.log('HTTPS: ',https_port);
+
+// }
+// else{
+// 	var http_port = 0;//parseInt(process.env.PORT);
+// 	var https_port = config.get('app.https.worker_port');//http_port + 1;
+
+
+// 	console.log('PORTS: ',http_port, https_port);
+// 	app.set('port', http_port);
+
+// 	//var http_server = http.createServer(app);
+
+// 	//http_server.listen(http_port);
+// 	//http_server.on('error', onError);
+// 	//http_server.on('listening', onListening);
+
+// 	var https_server = https.createServer(credentials, app);
+// 	https_server.listen(https_port);
+// 	https_server.on('error', onError);
+// 	https_server.on('listening', onListening);
+
+// 	var Worker = require('../modules/worker');
+// 	var worker = new Worker(app);
+// 	worker.init();
+// };
+
+
+
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+function onListening() {
+  var addr = http_server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+  console.log('Listening on ' + bind);
+}

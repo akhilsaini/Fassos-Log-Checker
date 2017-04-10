@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>My todolist</title>
+        <!-- <link href="./css/bootstrap.min.css" rel="stylesheet"> -->
+
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <!-- <link href="./css/ie10-viewport-bug-workaround.css" rel="stylesheet"> -->
+
+        <!-- Custom styles for this template -->
+        <!-- <link href="./css/dashboard.css" rel="stylesheet"> -->
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <!-- <script src="./js/ie-emulation-modes-warning.js"></script> -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- <style>
+            a {text-decoration: none; color: black;}
+        </style> -->
+    </head>
+
+    <body>
+        <h1>Check Log File</h1>
+        <div class="col-md-12">    
+            <form method='post' action='/api/file/upload' enctype="multipart/form-data">
+            <input type='file' name='logs'>
+            <input type='submit'>    
+        </div>
+        
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading"> <h3 class="panel-title">Log Line Status</h3> </div>
+                    <div class="panel-body" style="padding:0">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                            <tr>
+                                <th>Yes/No(Status)</th>
+                                <th>Log line</th>
+                            </tr>
+                            <% results.forEach(function(result, index) { %>
+                            <tr>
+                            <td><%= result.status %></td>
+                            <td><%= result.line %></td>
+                            </tr>
+                            <% }); %>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
