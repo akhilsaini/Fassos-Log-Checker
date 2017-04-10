@@ -2,7 +2,8 @@
 
   The quickest way to get started with application is just go to the open the terminal with the current working directory of application and then follow the below step.
 
-  1. npm start.
+  1. set NODE_ENV=default && npm start (on windows system) 
+  2. NODE_ENV=default npm start (on nix system) 
 
 
   Note : Assuming you installed node.js and npm packages also in working condition.
