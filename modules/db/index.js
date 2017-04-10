@@ -79,7 +79,7 @@ DB3.prototype.connect = function(obj) {
 };
 
 DB3.prototype.query = function(obj) {
-    console.log('In DB Query: ');
+    //console.log('In DB Query: ');
     var that = this;
 
     var sql = obj.sql;
