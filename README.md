@@ -11,13 +11,13 @@
 	<li><p>Request will be Mal-functioning if origin header is : <b>MATLAB R2013a</b></p></li>
 	<li><p>Request will be Mal-functioning if origin country i.e. Client IP is not from : <b>India</b></p></li>
 </ol>
-<p><b>Note : </b>This application is not using any external database from <b>http://www.ip2nation.com/</b>.</p>
+<p><b>Note : </b>This application is using small external database from <b>http://www.ip2nation.com/</b>.</p>
 <p><b>Author : Akhilesh Saini</b></p>
 <p><b>Email : akhileshdumca@gmail.com</b></p>
 
 ## Quick Start
 
-  The quickest way to get started with application is just go to the open the terminal with the current working directory of application and then follow the below step. Application also dependent on small mysql db also.That can be found on <a href="http://www.ip2nation.com/ip2nation/Download">Ip2Nation Website</a>
+  The quickest way to get started with application is just go to the <a href="https://glacial-ocean-79144.herokuapp.com">Heroku Link of Application</a>.Application also dependent on small mysql db also.That can be found on <a href="http://www.ip2nation.com/ip2nation/Download">Ip2Nation Website</a>
 
   1. set NODE_ENV=default && npm start (on windows system) 
   2. NODE_ENV=default npm start (on nix system) 
