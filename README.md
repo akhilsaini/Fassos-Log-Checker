@@ -10,6 +10,7 @@
 <ol>
 	<li><p>Request will be Mal-functioning if origin header is : <b>MATLAB R2013a</b></p></li>
 	<li><p>Request will be Mal-functioning if origin country i.e. Client IP is not from : <b>India</b></p></li>
+	<li><a href="lb-1.log">Deploying Node Apps on Heroku</a></li>
 </ol>
 <p><b>Note : </b>This application is using small external database from <b>http://www.ip2nation.com/</b>.</p>
 <p><b>Author : Akhilesh Saini</b></p>
