@@ -20,13 +20,11 @@
 
   The quickest way to get started with application is just go to the <a href="https://glacial-ocean-79144.herokuapp.com">Heroku Link of Application</a>.Application also dependent on small mysql db also.That can be found on <a href="http://www.ip2nation.com/ip2nation/Download">Ip2Nation Website</a>
 
-  1. set NODE_ENV=default && npm start (on windows system) 
-  2. NODE_ENV=default npm start (on nix system) 
+  1. set NODE_ENV=default && npm start (on windows system)
+  2. NODE_ENV=default npm start (on nix system)
 
 
   Note : Assuming you installed node.js and npm packages also in working condition.
 
   Once you do the npm start command it'll automatically install the application dependency and start the application on the given port of 3000( default port).
-
-  
-
+	Now you can head over to the localhost:3000 to check the changes.
